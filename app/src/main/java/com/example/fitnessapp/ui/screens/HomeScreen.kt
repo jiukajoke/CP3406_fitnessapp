@@ -24,5 +24,9 @@ fun HomeScreen(navController: NavController) {
         Button(onClick = { navController.navigate("diet") }) {
             Text("Log Diet")
         }
+        Button(onClick = { navController.navigate("history") }) {
+            Text("View History")
+        }
+
     }
 }

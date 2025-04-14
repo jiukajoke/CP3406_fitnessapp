@@ -12,6 +12,8 @@ import com.example.fitnessapp.ui.screens.DietScreen
 import com.example.fitnessapp.ui.screens.HomeScreen
 import com.example.fitnessapp.ui.screens.WorkoutScreen
 import com.example.fitnessapp.viewmodel.MainViewModel
+import com.example.fitnessapp.ui.screens.HistoryScreen
+
 
 @Composable
 fun AppNavigation(viewModel: MainViewModel) {
@@ -27,6 +29,8 @@ fun AppNavigation(viewModel: MainViewModel) {
             composable("home") { HomeScreen(navController) }
             composable("workout") { WorkoutScreen(navController, viewModel) }
             composable("diet") { DietScreen(navController) }
+            composable("history") { HistoryScreen(navController, viewModel) }
+
         }
     }
 }

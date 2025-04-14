@@ -5,11 +5,26 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.fitnessapp.repository.FitnessRepository
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.SharingStarted
+import com.example.fitnessapp.data.model.Workout
+
 
 class MainViewModel(private val repository: FitnessRepository) : ViewModel() {
+
+    val workouts = repository.getWorkouts().stateIn(
+        viewModelScope,
+        SharingStarted.WhileSubscribed(5000),
+        emptyList()
+    )
     fun saveWorkout(description: String) {
         viewModelScope.launch {
             repository.addWorkout(description)
+        }
+    }
+    fun deleteWorkout(workout: Workout) {
+        viewModelScope.launch {
+            repository.deleteWorkout(workout)
         }
     }
 }
