@@ -27,6 +27,9 @@ fun HomeScreen(navController: NavController) {
         Button(onClick = { navController.navigate("history") }) {
             Text("View History")
         }
+        Button(onClick = { navController.navigate("advice") }) {
+            Text("Get AI recommendations")
+        }
 
     }
 }
